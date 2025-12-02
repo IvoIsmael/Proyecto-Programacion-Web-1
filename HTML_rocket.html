@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="descripcion" content="Agencia de marketing online">
+    <meta name="keywords" content="marketing, redes_sociales, emprendedores">
+    <meta name="author" content="Ivo Ismael Avendaño Ibañez">
+    <title>Rocket</title>
+    <link rel="stylesheet" href="CSS_rocket.css" />
+</head>
+<body>
+    <header class="cabecera">
+        <div class="cabecera-contenido">
+            <div class="logo">
+                <img src="rocket icon.png" alt="Logo Rocket" class="logo-img" />
+                <span class="nombre-empresa">rocket</span>
+            </div>
+
+
+            <nav class="navegacion">
+                <div class="menu-desplegable">
+                    <button class="btn-menu">Servicios ⌵</button>
+                    <ul class="lista-servicios" id="lista-servicios">
+                        <li>Ideas de modelos de negocio</li>
+                        <li>Estrategias de marketing</li>
+                        <li>Promoción en redes sociales</li>
+                        <li>Ayuda en chat en tiempo real</li>
+                    </ul>
+                </div>
+
+                <a href="#sobre-nosotros" class="enlace-nav">Sobre nosotros</a>
+                <a href="#formulario-contacto" class="btn-contactanos">Contáctanos</a>
+            </nav>
+
+            <button class="btn-hamburguesa" aria-label="Menú">☰</button>
+        </div>
+    </header>
+
+
+
+    <section class="hero">
+        <div class="hero-contenido">
+            <div class="hero-texto">
+                <h1>Despega tu negocio con ayuda de profesionales en marketing</h1>
+                <p class="subtitulo">Agencia de Marketing</p>
+                <p class="pregunta">¿Problemas al promocionar tu negocio?<br> Contacta a uno de nuestros expertos.</p>
+            </div>
+            <img src="rocket.png" alt="Cohete Rocket" class="hero-imagen" />
+        </div>
+    </section>
+
+    <section id="sobre-nosotros" class="sobre-nosotros">
+        <div class="sobre-contenido">
+            <h2>Los expertos detrás de rocket han probado ser los mejores</h2>
+            <p>Somos una agencia que proporciona ideas brillantes para tu negocio. Reunimos a los mejores expertos en el área de marketing que solucionan problemas a la hora de promocionar tu negocio ¡Y todo en tiempo real!</p>
+            <p class="resaltado">Nuestros expertos trabajan 24/7 en un chat en tiempo real que responde en tus dudas y ofrecen las mejores ideas de marketing.</p>
+        </div>
+    </section>
+
+    <section id="formulario-contacto" class="formulario-seccion">
+        <div class="formulario-contenido">
+            <h2>Háblanos!</h2>
+            <p>Completa los campos y te asignaremos a un experto enseguida.</p>
+
+            <form id="form-contacto" class="formulario">
+                <input type="text" placeholder="Nombre completo*" required />
+                <input type="email" placeholder="Email*" required />
+                <select required>
+                    <option value="" disabled selected>Objetivo con tu negocio (elige una opción)</option>
+                    <option>Vender más</option>
+                    <option>Conseguir más clientes</option>
+                    <option>Crear marca</option>
+                    <option>Otro</option>
+                </select>
+                <button type="submit" class="btn-contactar-experto">Contactar experto</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="pie-pagina">
+        <div class="pie-contenedor">
+            <p>Copyright 2025 rocket ® · Todos los derechos reservados</p>
+        </div>
+    </footer>
+    <script src="JVS_rocket.js"></script>
+</body>
+</html>
