@@ -1,0 +1,196 @@
+:root {
+    --morado-claro: #3c1da2;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: white;
+    background-color: var(--morado-claro);
+}
+.cabecera {
+    background: var(--morado-claro);
+    position: static;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+.pr {
+    margin-top: 80px;
+    padding: 4rem 0;
+    background: var(--morado-claro);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.sobre-nosotros {
+    min-height: 90vh;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+.sobre-contenido {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.sobre-nosotros h2 {
+    font-size: 3.5rem;
+    margin-top: 1rem;
+    color: black;
+}
+
+.sobre-nosotros p {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.resaltado {
+    font-weight: bold;
+    color: #ff6b35;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+}
+.formulario-seccion {
+    padding: 8rem 0;
+    background: var(--morado-claro);
+    text-align: center;
+}
+.formulario-seccion h2{
+    font-size: 3.5rem;
+}
+.formulario-seccion p{
+    font-size: 1.4rem;
+}
+.lista-servicios {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: black;
+    min-width: 240px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px black;
+    padding: 0 1rem;
+    list-style: none;
+}
+
+.lista-servicios.abierto {
+    max-height: 300px;
+    padding: 1rem;
+    pointer-events: all;
+}
+.pr { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+.cabecera-contenido { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 1rem 0; 
+    margin-right: 20rem;
+}
+.logo { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    font-size: 2.2rem; 
+    font-weight: bold;
+    margin-left: 7rem; 
+}
+.logo-img { 
+    height: 60px; 
+}
+.navegacion { 
+    display: flex; 
+    align-items: center; 
+    gap: 2rem; 
+
+}
+.enlace-nav { color: white;font-weight: 500; }
+.btn-contactanos { background: #ff6b35; color: white; padding: 0.6rem 1.4rem; border-radius: 30px; text-decoration: none; font-weight: bold; }
+.btn-menu { background: none; border: none; color: white; font-size: 1rem; cursor: pointer; }
+.pr-contenido { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 3rem; 
+}
+.pr-texto h1 { font-size: 3.3rem; line-height: 1.2; margin-bottom: 2rem; margin-top: 0; margin-left: 2rem;}
+.subtitulo { font-size: 1.5rem; color: #ff6b35; margin-bottom: 1.5rem; margin-top: 0; margin-left: 2rem;}
+.pregunta { font-size: 1.5rem; margin-left: 2rem; margin-bottom: 3rem;}
+.pr-imagen {max-width: 478px;margin-left: 0rem;}
+.formulario { max-width: 500px; margin: 3rem auto 0; display: flex; flex-direction: column; gap: 1.2rem; }
+.formulario input, .formulario select { padding: 1rem; border-radius: 8px; border: none; font-size: 1rem; }
+.btn-contactar-experto { 
+    background: #ff6b35; 
+    color: white; 
+    padding: 1rem; 
+    margin: 3rem;
+    border: none; 
+    border-radius: 10px; 
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: 0.3s; 
+}
+.btn-contactar-experto:hover { background: #ff6b35; }
+
+.pie-pagina { 
+    background: var(--morado-claro); 
+    padding: 2rem 0; 
+    text-align: left; 
+    font-size: 1rem; 
+    margin-left: 5rem;
+    
+}
+.btn-hamburguesa { 
+    display: none; 
+    background: none; 
+    border: none; 
+    font-size: 2rem; 
+    color: white; 
+    cursor: pointer; 
+}
+
+@media (max-width: 968px) {
+    .pr-contenido { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .pr-texto h1 { 
+        font-size: 2.5rem; 
+    }
+    .navegacion { 
+        display: none; 
+        position: absolute; 
+        top: 100%; left: 0; 
+        width: 100%; 
+        background: var(--morado-claro); 
+        flex-direction: column; 
+        padding: 1rem 0; 
+    }
+    .navegacion.activo { display: flex; }
+    .btn-hamburguesa { display: block; }
+    .lista-servicios { 
+        position: static; 
+        transform: none; 
+        box-shadow: none; 
+        background: var(--morado-claro); 
+        color: white; 
+    }
+}
