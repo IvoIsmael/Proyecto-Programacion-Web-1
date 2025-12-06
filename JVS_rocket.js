@@ -1,33 +1,85 @@
-// Menú hamburguesa móvil
-document.querySelector('.btn-hamburguesa').addEventListener('click', () => {
-    document.querySelector('.navegacion').classList.toggle('activo');
-});
+window.addEventListener('scroll', function() {
+    var cabecera = document.querySelector('.cabecera');
+    var posicion = window.scrollY;
 
-// ANIMACIÓN DEL MENÚ SERVICIOS (click + hover)
-const btnMenu = document.querySelector('.btn-menu');
-const listaServicios = document.getElementById('lista-servicios');
-
-btnMenu.addEventListener('click', (e) => {
-    e.stopPropagation();
-    listaServicios.classList.toggle('abierto');
-});
-
-// Cerrar al hacer click fuera
-document.addEventListener('click', () => {
-    listaServicios.classList.remove('abierto');
-});
-
-// Evitar que se cierre al hacer click dentro del menú
-listaServicios.addEventListener('click', (e) => {
-    e.stopPropagation();
-});
-
-// Al enviar el formulario → abre el chatbot
-document.getElementById('form-contacto').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('¡Perfecto! En un momento te conectaremos con un experto.');
-    if (typeof tidioChatApi !== 'undefined') {
-        tidioChatApi.show();
-        tidioChatApi.open();
+    if (posicion > 50) {
+        cabecera.classList.add('blanca');
+    } else {
+        cabecera.classList.remove('blanca');
     }
 });
+
+var botonHamburguesa = document.querySelector('.btn-hamburguesa');
+if (botonHamburguesa) {
+    botonHamburguesa.addEventListener('click', function() {
+        document.querySelector('.navegacion').classList.toggle('activo');
+    });
+}
+
+var botonServicios = document.querySelector('.btn-menu');
+var listaServicios = document.getElementById('lista-servicios');
+
+if (botonServicios && listaServicios) {
+    botonServicios.addEventListener('click', function(e) {
+        e.stopPropagation();
+        listaServicios.classList.toggle('abierto');
+    });
+
+    document.addEventListener('click', function() {
+        listaServicios.classList.remove('abierto');
+    });
+
+    listaServicios.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+}
+
+
+
+var formulario = document.getElementById('form-contacto');
+
+if (formulario) {
+    formulario.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        //se guarda el login
+        var nombre = document.querySelector('input[type="text"]').value;
+        var usuarioLogueado = true;
+
+        alert('Perfecto ' + nombre + 'Conectando con el experto...');
+        var btn = document.querySelector('.btn-contactar-experto');
+        btn.textContent = "Conectando...";
+        btn.disabled = true;
+        cargarVoiceflow();
+    });
+}
+
+//funcion del widget de voiceflow
+function cargarVoiceflow() {
+    var d = document;
+    var t = 'script';
+    var v = d.createElement(t);
+    var s = d.getElementsByTagName(t)[0];
+
+    //id aleatoreo
+    var sessionID = Math.random().toString(36).substring(7);
+
+    v.onload = function() {
+        window.voiceflow.chat.load({
+            verify: { projectID: '69338515774816d337ac576b' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            userID: sessionID,
+            voice: {
+                url: "https://runtime-api.voiceflow.com"
+            }
+        }).then(() => {
+            setTimeout(() => {
+                window.voiceflow.chat.open();
+            }, 1000);
+        });
+    };
+    v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+    v.type = "text/javascript";
+    s.parentNode.insertBefore(v, s);
+}
