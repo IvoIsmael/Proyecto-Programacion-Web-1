@@ -7,14 +7,45 @@ body {
     line-height: 1.6;
     color: white;
     background-color: var(--morado-claro);
+    padding-top: 100px;
 }
 .cabecera {
     background: var(--morado-claro);
-    position: static;
+    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    transition: background 0.4s ease, color 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     backdrop-filter: blur(10px);
+}
+
+.cabecera.blanca {
+    background: white;
+    color: var(--morado-claro);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.cabecera.blanca .btn-hamburguesa {
+    color: var(--morado-claro);
+}
+.cabecera .logo-img {
+    content: url('imagenes/rocket icon white.png');
+    height: 60px;
+    transition: all 0.4s ease;
+}
+
+.cabecera.blanca .logo-img {
+    content: url('imagenes/rocket icon.png');
+}
+.cabecera.blanca .nombre-empresa,
+.cabecera.blanca .enlace-nav,
+.cabecera.blanca .btn-menu {
+    color: var(--morado-claro);
+}
+
+.cabecera.blanca .btn-contactanos {
+    background: #ff6b35;
+    color: white;
 }
 .pr {
     margin-top: 80px;
@@ -78,7 +109,7 @@ body {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background: white;
+    background: white; 
     color: black;
     min-width: 240px;
     border-radius: 12px;
@@ -94,7 +125,7 @@ body {
 }
 .pr { 
     max-width: 1200px; 
-    margin: 0 auto; 
+    margin: 0 auto;
     padding: 0 20px; 
 }
 .cabecera-contenido { 
@@ -121,16 +152,38 @@ body {
     gap: 2rem; 
 
 }
-.enlace-nav { color: white;font-weight: 500; }
-.btn-contactanos { background: #ff6b35; color: white; padding: 0.6rem 1.4rem; border-radius: 30px; text-decoration: none; font-weight: bold; }
-.btn-menu { background: none; border: none; color: white; font-size: 1rem; cursor: pointer; }
+.enlace-nav {
+     color: white;
+     font-weight: 500; 
+    }
+.btn-contactanos { 
+    background: #ff6b35; 
+    color: white; 
+    padding: 0.6rem 1.4rem; 
+    border-radius: 30px; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+.btn-menu {
+    background: none; 
+    border: none; 
+    color: white; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    }
 .pr-contenido { 
     display: flex; 
     align-items: center; 
     justify-content: space-between; 
     gap: 3rem; 
 }
-.pr-texto h1 { font-size: 3.3rem; line-height: 1.2; margin-bottom: 2rem; margin-top: 0; margin-left: 2rem;}
+.pr-texto h1 { 
+    font-size: 3.3rem; 
+    line-height: 1.2; 
+    margin-bottom: 2rem; 
+    margin-top: 0; 
+    margin-left: 2rem;
+}
 .subtitulo { font-size: 1.5rem; color: #ff6b35; margin-bottom: 1.5rem; margin-top: 0; margin-left: 2rem;}
 .pregunta { font-size: 1.5rem; margin-left: 2rem; margin-bottom: 3rem;}
 .pr-imagen {max-width: 478px;margin-left: 0rem;}
@@ -140,7 +193,7 @@ body {
     background: #ff6b35; 
     color: white; 
     padding: 1rem; 
-    margin: 3rem;
+    margin: 1rem;
     border: none; 
     border-radius: 10px; 
     font-size: 1.1rem; 
@@ -148,6 +201,7 @@ body {
     cursor: pointer; 
     transition: 0.3s; 
 }
+
 .btn-contactar-experto:hover { background: #ff6b35; }
 
 .pie-pagina { 
@@ -178,14 +232,19 @@ body {
     .navegacion { 
         display: none; 
         position: absolute; 
-        top: 100%; left: 0; 
+        top: 100%; 
+        left: 0; 
         width: 100%; 
-        background: var(--morado-claro); 
+        background: var(--morado-claro);
         flex-direction: column; 
         padding: 1rem 0; 
     }
-    .navegacion.activo { display: flex; }
+    .navegacion.activo { 
+        display: flex; 
+        box-shadow: 0 15px 35px black;
+    }
     .btn-hamburguesa { display: block; }
+    
     .lista-servicios { 
         position: static; 
         transform: none; 
@@ -193,4 +252,14 @@ body {
         background: var(--morado-claro); 
         color: white; 
     }
+
+    .cabecera.blanca .navegacion .enlace-nav,
+    .cabecera.blanca .navegacion .btn-menu {
+        color: white;
+    }
+}
+.btn-contactar-experto:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
 }
