@@ -17,7 +17,7 @@ if (botonHamburguesa) {
 }
 
 var botonServicios = document.querySelector('.btn-menu');
-var listaServicios = document.getElementById('lista-servicios');
+var listaServicios = document.getElementById('lista-servicios')
 
 if (botonServicios && listaServicios) {
     botonServicios.addEventListener('click', function(e) {
@@ -46,14 +46,13 @@ if (formulario) {
         var nombre = document.querySelector('input[type="text"]').value;
         var usuarioLogueado = true;
 
-        alert('Perfecto ' + nombre + 'Conectando con el experto...');
+        alert('Listo ' + nombre + ', conectando con un experto...');
         var btn = document.querySelector('.btn-contactar-experto');
         btn.textContent = "Conectando...";
         btn.disabled = true;
         cargarVoiceflow();
     });
 }
-
 //funcion del widget de voiceflow
 function cargarVoiceflow() {
     var d = document;
